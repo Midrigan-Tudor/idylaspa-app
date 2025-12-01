@@ -5,12 +5,12 @@ import {
   RouterProvider,
 } from "react-router";
 
-import Layout from "../components/Layout";
+import { Calendar, Layout } from "../components";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<text>Home Test</text>} />
+      <Route index element={<Calendar />} />
       <Route path="about" element={<>About</>} />
     </Route>
   )

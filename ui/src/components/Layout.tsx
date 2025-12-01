@@ -10,12 +10,23 @@ const Layout = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        minHeight: "100vh",
-        pb: 8, // Padding bottom to account for fixed footer
+        height: "100vh",
+        overflow: "hidden",
       }}
     >
       <Header />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box
+        component="main"
+        sx={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          overflow: "hidden",
+          pt: 4,
+          px: 4,
+          pb: 13, // Padding bottom to account for fixed footer
+        }}
+      >
         <Outlet />
       </Box>
       <Footer />

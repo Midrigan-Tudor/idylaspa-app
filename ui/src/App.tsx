@@ -1,11 +1,14 @@
+import { LanguageProvider } from "./components/LanguageProvider";
 import { ThemeProvider } from "./components/ThemeProvider";
 import Routes from "./routes";
 
 function App() {
   return (
-    <ThemeProvider>
-      <Routes />
-    </ThemeProvider>
+    <LanguageProvider>
+      <ThemeProvider>
+        <Routes />
+      </ThemeProvider>
+    </LanguageProvider>
   );
 }
 

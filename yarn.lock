@@ -627,6 +627,18 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
+"@preact/signals-core@^1.12.0":
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/@preact/signals-core/-/signals-core-1.12.1.tgz#714b489bb35d9874cc44b35706a9dc27da8d21c4"
+  integrity sha512-BwbTXpj+9QutoZLQvbttRg5x3l5468qaV2kufh+51yha1c53ep5dY4kTuZR35+3pAZxpfQerGJiQqg34ZNZ6uA==
+
+"@preact/signals@^2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@preact/signals/-/signals-2.5.1.tgz#523901c30b49f177a961a380f2759b4f482eee05"
+  integrity sha512-VPjk5YFt7i11Fi4UK0tzaEe5xLwfhUxXL3l89ocxQ5aPz7bRo8M5+N73LjBMPklyXKYKz6YsNo4Smp8n6nplng==
+  dependencies:
+    "@preact/signals-core" "^1.12.0"
+
 "@rolldown/pluginutils@1.0.0-beta.47":
   version "1.0.0-beta.47"
   resolved "https://registry.yarnpkg.com/@rolldown/pluginutils/-/pluginutils-1.0.0-beta.47.tgz#c282c4a8c39f3d6d2f1086aae09a34e6241f7a50"
@@ -741,6 +753,31 @@
   version "4.53.3"
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.53.3.tgz#38ae84f4c04226c1d56a3b17296ef1e0460ecdfe"
   integrity sha512-UhTd8u31dXadv0MopwGgNOBpUVROFKWVQgAg5N1ESyCz8AuBcMqm4AuTjrwgQKGDfoFuz02EuMRHQIw/frmYKQ==
+
+"@schedule-x/calendar-controls@^3.4.2":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@schedule-x/calendar-controls/-/calendar-controls-3.4.2.tgz#519dc91e5e013043760104c9813fe357d6b9756f"
+  integrity sha512-r/3v/B8mPyZL+45jes/dChndYIuZfGci/GScEEk/0ihDu6pnRdDDLaRotIj7+RrmlGxEF3HhnUOoRdY32F0eAw==
+
+"@schedule-x/calendar@^3.4.2":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@schedule-x/calendar/-/calendar-3.4.2.tgz#a3c2d2cf6a961d6b22c991d5cfda07ac404c6b52"
+  integrity sha512-TOL3SM2dXBgS94n1t3cY7OAE3Eh0qFG6g/LcxaDIwyJ0a1NT9wi/YOr3BwzBCt5+XsfdAbeVMVIaQdQnKnLboQ==
+
+"@schedule-x/events-service@^3.4.2":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@schedule-x/events-service/-/events-service-3.4.2.tgz#785857f7f834a7074b3f0771f947c54909e0f1b6"
+  integrity sha512-wkz36l6pMVvmcRQsZLtb6mHnkKaw+Ejw51cjCpzHXXGlq1IpPvg3QMgVZGriUxjS6omTfDkhb+2ZETPdWl7BiQ==
+
+"@schedule-x/react@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@schedule-x/react/-/react-3.4.0.tgz#c388cf950737f25959ab6251c6e867384498a8b1"
+  integrity sha512-SNrZJ6LzlhKNnmftX3FG7i76hanXHRkpI8Dx7Ta28e2rYWgN4dnUBFNHxTgaUbvIfgLs9kWWnc+9dG6uRjExDw==
+
+"@schedule-x/theme-default@^3.4.2":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@schedule-x/theme-default/-/theme-default-3.4.2.tgz#bcf4af6109310ffa1b6afb3f4a93bce9c917fad5"
+  integrity sha512-/pc/f2DUgIGdEoQOj1rTzOSGQ/rkb/fOq4iyWVeM+74jJiF5rVAZ63UBeBWzjDD3TTVCAckt0/F5h+diHhAe2w==
 
 "@types/babel__core@^7.20.5":
   version "7.20.5"
@@ -1648,6 +1685,11 @@ postcss@^8.5.6:
     picocolors "^1.1.1"
     source-map-js "^1.2.1"
 
+preact@^10.28.0:
+  version "10.28.0"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.28.0.tgz#a851300df42842797046545e4172a4128d158755"
+  integrity sha512-rytDAoiXr3+t6OIP3WGlDd0ouCUG1iCWzkcY3++Nreuoi17y6T5i/zRhe6uYfoVcxq6YU+sBtJouuRDsq8vvqA==
+
 prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
@@ -1825,6 +1867,18 @@ supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
+
+temporal-polyfill@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/temporal-polyfill/-/temporal-polyfill-0.3.0.tgz#7fe90e913ac5ec8e0d508fb50d04dd7a74cec23e"
+  integrity sha512-qNsTkX9K8hi+FHDfHmf22e/OGuXmfBm9RqNismxBrnSmZVJKegQ+HYYXT+R7Ha8F/YSm2Y34vmzD4cxMu2u95g==
+  dependencies:
+    temporal-spec "0.3.0"
+
+temporal-spec@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/temporal-spec/-/temporal-spec-0.3.0.tgz#8c4210c575fb28ba0a1c2e02ad68d1be5956a11f"
+  integrity sha512-n+noVpIqz4hYgFSMOSiINNOUOMFtV5cZQNCmmszA6GiVFVRt3G7AqVyhXjhCSmowvQn+NsGn+jMDMKJYHd3bSQ==
 
 tinyglobby@^0.2.15:
   version "0.2.15"

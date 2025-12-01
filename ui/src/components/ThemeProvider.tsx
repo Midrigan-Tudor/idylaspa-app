@@ -1,8 +1,8 @@
-import { createContext, useContext, useState, useMemo, ReactNode } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import {
-  ThemeProvider as MuiThemeProvider,
   createTheme,
   CssBaseline,
+  ThemeProvider as MuiThemeProvider,
 } from "@mui/material";
 
 type ThemeMode = "light" | "dark";
@@ -23,7 +23,7 @@ export const useTheme = () => {
 };
 
 interface ThemeProviderProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {

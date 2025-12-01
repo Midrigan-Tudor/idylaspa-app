@@ -9,32 +9,35 @@ import {
   Typography,
 } from "@mui/material";
 
+import { useLanguage } from "./LanguageProvider";
 import { useTheme } from "./ThemeProvider";
 
 const Header = () => {
   const { mode, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ paddingLeft: 12, paddingRight: 12 }}>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 1, fontSize: "16px" }}
+        >
           IDYLASPA
         </Typography>
 
         <Button
           color="inherit"
           sx={{
-            // border: 1,
-            // borderColor: "inherit",
-            // borderRadius: 3,
-            //padding: 0.8,
             ml: 1,
             textTransform: "none",
-            fontSize: "12px",
+            fontSize: "14px",
           }}
         >
           Login
         </Button>
+
         <Tooltip
           title={
             mode === "dark" ? "Switch to light theme" : "Switch to dark theme"
@@ -59,6 +62,28 @@ const Header = () => {
             )}
           </IconButton>
         </Tooltip>
+        <IconButton
+          color="inherit"
+          onClick={toggleLanguage}
+          aria-label="Toggle language"
+          sx={{
+            border: 1,
+            borderColor: "inherit",
+            borderRadius: 3,
+            padding: 0.8,
+            ml: 1,
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: 14,
+              fontWeight: 600,
+              textTransform: "uppercase",
+            }}
+          >
+            {language === "ro" ? "EN" : "RO"}
+          </Typography>
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
