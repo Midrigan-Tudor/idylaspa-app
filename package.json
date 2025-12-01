@@ -6,8 +6,11 @@
     "server",
     "ui"
   ],
-  "scripts": {},
+  "scripts": {
+    "start:ui": "yarn workspace ui dev"
+  },
   "devDependencies": {
-    "prettier": "3.3.3"
+    "prettier": "3.3.3",
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.1"
   }
 }
