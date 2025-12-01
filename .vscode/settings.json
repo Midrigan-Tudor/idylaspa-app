@@ -1,0 +1,26 @@
+{
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": true,
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "eslint.enable": true,
+  "search.exclude": {
+    "**/es": true,
+    "**/lib": true,
+    "**/dist": true,
+    "**/local_modules": true,
+    "**/node_modules": true,
+    "**/yarn.lock": true
+  },
+  "cSpell.words": ["idylaspa"],
+  "workbench.colorCustomizations": {
+    "activityBar.foreground": "#F7D1CD",
+    "activityBar.background": "#a23c26",
+    "activityBar.inactiveForeground": "#fafafa78",
+    "activityBarBadge.background": "#323291",
+    "activityBarBadge.foreground": "#F7D1CD"
+  }
+}

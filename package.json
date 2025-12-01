@@ -1,0 +1,13 @@
+{
+  "name": "idylaspa-app",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "server",
+    "ui"
+  ],
+  "scripts": {},
+  "devDependencies": {
+    "prettier": "3.3.3"
+  }
+}
