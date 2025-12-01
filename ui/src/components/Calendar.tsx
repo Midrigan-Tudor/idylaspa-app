@@ -6,6 +6,7 @@ import {
   createViewWeek,
 } from "@schedule-x/calendar";
 import { createCalendarControlsPlugin } from "@schedule-x/calendar-controls";
+import { createCurrentTimePlugin } from "@schedule-x/current-time";
 import { ScheduleXCalendar } from "@schedule-x/react";
 
 import "@schedule-x/theme-default/dist/index.css";
@@ -16,6 +17,7 @@ import { useLanguage } from "./LanguageProvider";
 import { useTheme } from "./ThemeProvider";
 
 const calendarControls = createCalendarControlsPlugin();
+const currentTime = createCurrentTimePlugin();
 
 const Calendar = () => {
   const { mode } = useTheme();
@@ -45,7 +47,7 @@ const Calendar = () => {
         hour12: language === "ro" ? false : true,
       },
     },
-    plugins: [calendarControls],
+    plugins: [currentTime, calendarControls],
   });
 
   useEffect(() => {

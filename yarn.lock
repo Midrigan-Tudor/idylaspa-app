@@ -764,6 +764,11 @@
   resolved "https://registry.yarnpkg.com/@schedule-x/calendar/-/calendar-3.4.2.tgz#a3c2d2cf6a961d6b22c991d5cfda07ac404c6b52"
   integrity sha512-TOL3SM2dXBgS94n1t3cY7OAE3Eh0qFG6g/LcxaDIwyJ0a1NT9wi/YOr3BwzBCt5+XsfdAbeVMVIaQdQnKnLboQ==
 
+"@schedule-x/current-time@^3.4.2":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@schedule-x/current-time/-/current-time-3.4.2.tgz#7f54ebb23f4c50bfc184d8ebb7187d0603a46351"
+  integrity sha512-ySOHESHTpsEurNvMi18xx1TwQVpInyl9cXksZ1ALkRnqf2qvHEbbnvztvT/BG8ulbzKeLi6slr8ZvQAsSzqvFQ==
+
 "@schedule-x/events-service@^3.4.2":
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/@schedule-x/events-service/-/events-service-3.4.2.tgz#785857f7f834a7074b3f0771f947c54909e0f1b6"
