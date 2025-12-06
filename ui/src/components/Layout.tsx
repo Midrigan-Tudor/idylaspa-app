@@ -10,8 +10,7 @@ const Layout = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: "100vh",
-        overflow: "hidden",
+        minHeight: "100vh",
       }}
     >
       <Header />
@@ -21,10 +20,6 @@ const Layout = () => {
           flex: 1,
           display: "flex",
           flexDirection: "column",
-          overflow: "hidden",
-          pt: 4,
-          px: 4,
-          pb: 13, // Padding bottom to account for fixed footer
         }}
       >
         <Outlet />

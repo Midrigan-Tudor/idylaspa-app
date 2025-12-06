@@ -15,7 +15,7 @@
     "**/node_modules": true,
     "**/yarn.lock": true
   },
-  "cSpell.words": ["idylaspa", "ianvs"],
+  "cSpell.words": ["idylaspa", "ianvs", "IDYLA"],
   "workbench.colorCustomizations": {
     "activityBar.foreground": "#F7D1CD",
     "activityBar.background": "#a23c26",
