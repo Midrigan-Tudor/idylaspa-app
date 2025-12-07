@@ -31,7 +31,7 @@ const HeroSection = () => {
     <Box
       sx={{
         position: "relative",
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 110px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -79,186 +79,196 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <Container
-        maxWidth="md"
+      <Box
         sx={{
-          position: "relative",
-          zIndex: 3,
-          textAlign: "center",
-          px: { xs: 3, sm: 4 },
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+
+          gap: 5,
+          mt: 6,
         }}
       >
-        {/* Decorative Line */}
-        <Box
+        <Container
+          maxWidth="md"
           sx={{
-            width: 60,
-            height: 2,
-            backgroundColor: "secondary.main",
-            mx: "auto",
-            mb: 3,
-          }}
-        />
-
-        {/* Subtitle */}
-        <Typography
-          variant="overline"
-          sx={{
-            color: "secondary.main",
-            letterSpacing: "0.3em",
-            fontSize: { xs: "0.75rem", sm: "0.85rem" },
-            fontWeight: 600,
-            display: "block",
-            mb: 2,
+            position: "relative",
+            zIndex: 3,
+            textAlign: "center",
+            px: { xs: 3, sm: 4 },
           }}
         >
-          {t.heroSubtitle}
-        </Typography>
-
-        {/* Main Title */}
-        <Typography
-          variant="h1"
-          sx={{
-            fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem" },
-            fontWeight: 500,
-            lineHeight: 1.1,
-            mb: 3,
-            color: "text.primary",
-          }}
-        >
-          {t.heroTitle}
-        </Typography>
-
-        {/* Description */}
-        <Typography
-          variant="body1"
-          sx={{
-            maxWidth: 600,
-            mx: "auto",
-            color: "text.secondary",
-            fontSize: { xs: "1.1rem", sm: "1.25rem" },
-            lineHeight: 1.8,
-            mb: 4,
-          }}
-        >
-          {t.heroDescription}
-        </Typography>
-
-        {/* Decorative Element */}
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 2,
-            mt: 4,
-          }}
-        >
+          {/* Decorative Line */}
           <Box
             sx={{
-              width: 40,
-              height: 1,
-              backgroundColor: isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50,
+              width: 60,
+              height: 2,
+              backgroundColor: "secondary.main",
+              mx: "auto",
+              mb: 3,
             }}
           />
-          <Box
-            component="span"
+
+          {/* Subtitle */}
+          <Typography
+            variant="overline"
             sx={{
               color: "secondary.main",
-              fontSize: "1.5rem",
+              letterSpacing: "0.3em",
+              fontSize: { xs: "0.75rem", sm: "0.85rem" },
+              fontWeight: 600,
+              display: "block",
+              mb: 2,
             }}
           >
-            ✿
-          </Box>
+            {t.heroSubtitle}
+          </Typography>
+
+          {/* Main Title */}
+          <Typography
+            variant="h1"
+            sx={{
+              fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem" },
+              fontWeight: 500,
+              lineHeight: 1.1,
+              mb: 3,
+              color: "text.primary",
+            }}
+          >
+            {t.heroTitle}
+          </Typography>
+
+          {/* Description */}
+          <Typography
+            variant="body1"
+            sx={{
+              maxWidth: 600,
+              mx: "auto",
+              color: "text.secondary",
+              fontSize: { xs: "1.1rem", sm: "1.25rem" },
+              lineHeight: 1.8,
+              mb: 4,
+            }}
+          >
+            {t.heroDescription}
+          </Typography>
+
+          {/* Decorative Element */}
           <Box
             sx={{
-              width: 40,
-              height: 1,
-              backgroundColor: isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 2,
+              mt: 4,
             }}
-          />
-        </Box>
+          >
+            <Box
+              sx={{
+                width: 40,
+                height: 1,
+                backgroundColor: isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50,
+              }}
+            />
+            <Box
+              component="span"
+              sx={{
+                color: "secondary.main",
+                fontSize: "1.5rem",
+              }}
+            >
+              ✿
+            </Box>
+            <Box
+              sx={{
+                width: 40,
+                height: 1,
+                backgroundColor: isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50,
+              }}
+            />
+          </Box>
 
-        {/* Slide Indicators */}
+          {/* Slide Indicators */}
+
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 1,
+              mt: 6,
+            }}
+          >
+            {HERO_IMAGES.map((_, index) => (
+              <Box
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                sx={{
+                  width: currentSlide === index ? 24 : 8,
+                  height: 8,
+                  borderRadius: 4,
+                  backgroundColor:
+                    currentSlide === index
+                      ? "secondary.main"
+                      : "text.secondary",
+                  opacity: currentSlide === index ? 1 : 0.4,
+                  transition: "all 0.3s ease",
+                  cursor: "pointer",
+                  "&:hover": {
+                    opacity: 0.8,
+                  },
+                }}
+              />
+            ))}
+          </Box>
+        </Container>
+
+        {/* Scroll Indicator */}
         <Box
           sx={{
+            zIndex: 3,
             display: "flex",
             justifyContent: "center",
-            gap: 1,
-            mt: 6,
+            animation: "bounce 2s infinite",
+            "@keyframes bounce": {
+              "0%, 20%, 50%, 80%, 100%": {
+                transform: "translateY(0)",
+              },
+              "40%": {
+                transform: "translateY(-10px)",
+              },
+              "60%": {
+                transform: "translateY(-5px)",
+              },
+            },
           }}
         >
-          {HERO_IMAGES.map((_, index) => (
+          <Box
+            sx={{
+              width: 24,
+              height: 40,
+              border: 2,
+              borderColor: isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50,
+              borderRadius: 12,
+              display: "flex",
+              justifyContent: "center",
+              pt: 1,
+            }}
+          >
             <Box
-              key={index}
-              onClick={() => setCurrentSlide(index)}
               sx={{
-                width: currentSlide === index ? 24 : 8,
+                width: 4,
                 height: 8,
-                borderRadius: 4,
-                backgroundColor:
-                  currentSlide === index ? "secondary.main" : "text.secondary",
-                opacity: currentSlide === index ? 1 : 0.4,
-                transition: "all 0.3s ease",
-                cursor: "pointer",
-                "&:hover": {
-                  opacity: 0.8,
+                backgroundColor: "secondary.main",
+                borderRadius: 2,
+                animation: "scroll 2s infinite",
+                "@keyframes scroll": {
+                  "0%": { opacity: 1, transform: "translateY(0)" },
+                  "100%": { opacity: 0, transform: "translateY(16px)" },
                 },
               }}
             />
-          ))}
-        </Box>
-      </Container>
-
-      {/* Scroll Indicator */}
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: 100,
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 3,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          animation: "bounce 2s infinite",
-          "@keyframes bounce": {
-            "0%, 20%, 50%, 80%, 100%": {
-              transform: "translateX(-50%) translateY(0)",
-            },
-            "40%": {
-              transform: "translateX(-50%) translateY(-10px)",
-            },
-            "60%": {
-              transform: "translateX(-50%) translateY(-5px)",
-            },
-          },
-        }}
-      >
-        <Box
-          sx={{
-            width: 24,
-            height: 40,
-            border: 2,
-            borderColor: isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50,
-            borderRadius: 12,
-            display: "flex",
-            justifyContent: "center",
-            pt: 1,
-          }}
-        >
-          <Box
-            sx={{
-              width: 4,
-              height: 8,
-              backgroundColor: "secondary.main",
-              borderRadius: 2,
-              animation: "scroll 2s infinite",
-              "@keyframes scroll": {
-                "0%": { opacity: 1, transform: "translateY(0)" },
-                "100%": { opacity: 0, transform: "translateY(16px)" },
-              },
-            }}
-          />
+          </Box>
         </Box>
       </Box>
     </Box>
