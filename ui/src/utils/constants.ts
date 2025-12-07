@@ -5,8 +5,10 @@ export const BOOKING_URL =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1v3ukc6GdsO3nygSuMGY-VAai1xnM4INOGYaXp-la2gSPmmsh1XYGrGp_qbIrP5O8C6Ydw9_6T?gv=true";
 
 export const SOCIAL_URLS = {
-  instagram: "https://instagram.com/idylaspa",
-  facebook: "https://facebook.com/idylaspa",
+  instagram: "https://www.instagram.com/idyla_spa?igsh=dDV2cW0zaHlzYnk3",
+  facebook: "https://www.facebook.com/share/1T92uV7iZD/?mibextid=wwXIfr",
+  tiktok:
+    "https://www.tiktok.com/@masaj.asiatic.idyla.spa?_r=1&_t=ZN-921FNcRr0R4",
 } as const;
 
 // ============================================
