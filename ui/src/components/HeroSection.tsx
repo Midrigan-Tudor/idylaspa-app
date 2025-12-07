@@ -191,7 +191,7 @@ const HeroSection = () => {
           {/* Gecko PNG Image */}
           <Box
             component="img"
-            src="/gecko.png"
+            src={`${import.meta.env.BASE_URL}gecko.png`}
             alt="Scroll indicator"
             sx={{
               width: 55,

@@ -82,7 +82,7 @@ const Header = () => {
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
             <Box
               component="img"
-              src="/idyla-logo.png"
+              src={`${import.meta.env.BASE_URL}idyla-logo.png`}
               alt="Idyla Spa Logo"
               sx={{
                 height: { xs: 48, sm: 56 },
