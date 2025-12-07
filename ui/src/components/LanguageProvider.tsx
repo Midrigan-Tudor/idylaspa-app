@@ -75,15 +75,14 @@ const translations: Record<Language, Translations> = {
     bookAppointment: "Programare",
 
     // Hero
-    heroTitle: "Arta Relaxarii Asiatice",
-    heroSubtitle: "Arta Relaxarii Asiatice",
+    heroTitle: "Arta Relaxării Asiatice",
+    heroSubtitle: "Arta Relaxării Asiatice",
     heroDescription:
       "Experimentează arta autentică a masajului balinezian într-un sanctuar de liniște și relaxare profundă. Lasă-te purtat într-o călătorie senzorială care îți va revitaliza corpul și sufletul.",
 
     // Team section
     teamTitle: "Echipa Noastră",
-    teamSubtitle:
-      "Profesionist balinez cu experiență în tehnici tradiționale",
+    teamSubtitle: "Profesionist balinez cu experiență în tehnici tradiționale",
     yearsExperience: "ani experiență",
     specialties: "Specialități",
 
@@ -92,54 +91,62 @@ const translations: Record<Language, Translations> = {
     team1Role: "Specialist Masaj Tradițional",
     team1Bio:
       "Profesionist balinez originar din Denpasar, cu 13 ani de experiență în tehnici tradiționale de masaj și relaxare. Aduce autenticitatea și arta masajului balinezian direct din inima Baliului.",
-    team1Specialties: "Masaj Balinezian Tradițional, Masaj Thailandez, Masaj cu Pietre Calde, Lomi-Lomi Hawaiian",
+    team1Specialties:
+      "Masaj Balinezian Tradițional, Masaj Thailandez, Masaj cu Pietre Calde, Lomi-Lomi Hawaiian",
 
     // Services section
     servicesTitle: "Meniul Nostru",
-    servicesSubtitle:
-      "Tratamente inspirate din tradițiile Asiei",
+    servicesSubtitle: "Tratamente inspirate din tradițiile Asiei",
     recommended: "Recomandat",
 
     // Services
     service1Name: "Masaj Balinez",
     service1Desc:
       "Masaj tradițional din Bali, cu mișcări fluide, presiuni blânde și ritm învăluitor, creat pentru relaxare profundă și armonie interioară.",
-    service1Benefits: "Relaxare profundă, Echilibru emoțional, Detensionare musculară, Reducerea stresului, Circulație îmbunătățită",
+    service1Benefits:
+      "Relaxare profundă, Echilibru emoțional, Detensionare musculară, Reducerea stresului, Circulație îmbunătățită",
 
     service2Name: "Masaj Thailandez",
     service2Desc:
       "Tehnică asiatică bazată pe presopunctură și stretching pasiv, ideală pentru eliberarea tensiunii din corp și creșterea amplitudinii articulare.",
-    service2Benefits: "Flexibilitate articulară, Detensionare profundă, Revitalizare corporală, Echilibru energetic, Claritate mentală",
+    service2Benefits:
+      "Flexibilitate articulară, Detensionare profundă, Revitalizare corporală, Echilibru energetic, Claritate mentală",
 
     service3Name: "Masaj Sportiv",
     service3Desc:
       "Masaj activ, destinat persoanelor active, sau după efort fizic, pentru recuperare, reducerea febrei musculare și creșterea performanței musculare.",
-    service3Benefits: "Recuperare musculară, Reducerea durerilor, Elasticitate musculară, Performanță fizică, Mobilitate crescută",
+    service3Benefits:
+      "Recuperare musculară, Reducerea durerilor, Elasticitate musculară, Performanță fizică, Mobilitate crescută",
 
     service4Name: "Masaj cu Pietre Calde",
     service4Desc:
       "Pietre vulcanice încălzite, aplicate strategic, combinate cu masaj manual pentru relaxarea mușchilor în profunzime și detensionare continuă.",
-    service4Benefits: "Relaxare profundă, Eliminarea tensiunilor, Circulație activată, Calm interior, Somn odihnitor, Echilibru",
+    service4Benefits:
+      "Relaxare profundă, Eliminarea tensiunilor, Circulație activată, Calm interior, Somn odihnitor, Echilibru",
 
     service5Name: "Masaj Lomi-Lomi Hawaiian",
     service5Desc:
       "Masaj fluid, realizat cu antebrațele și mișcări ample, pentru armonizarea corpului și restabilirea echilibrului emoțional.",
-    service5Benefits: "Eliberare emoțională, Relaxare generală, Echilibru interior, Circulație îmbunătățită, Stare de bine",
+    service5Benefits:
+      "Eliberare emoțională, Relaxare generală, Echilibru interior, Circulație îmbunătățită, Stare de bine",
 
     service6Name: "Masaj Limfatic - Anticelulitic",
     service6Desc:
       "Activează drenajul limfatic, reduce retenția de apă, îmbunătățește tonusul pielii și diminuează vizibil aspectul celulitei.",
-    service6Benefits: "Reducere celulită, Detoxifiere, Fermitate corporală, Eliminarea retenției de apă, Stimularea metabolismului",
+    service6Benefits:
+      "Reducere celulită, Detoxifiere, Fermitate corporală, Eliminarea retenției de apă, Stimularea metabolismului",
 
     service7Name: "Masaj Cap, Gât și Umeri",
     service7Desc:
       "Masaj dedicat zonelor afectate de stres, migrene sau postură incorectă, pentru relaxare rapidă și claritate mentală.",
-    service7Benefits: "Reducerea migrenelor, Relaxare cervicală, Claritate mentală, Calm interior, Reducerea oboselii",
+    service7Benefits:
+      "Reducerea migrenelor, Relaxare cervicală, Claritate mentală, Calm interior, Reducerea oboselii",
 
     service8Name: "Abonament Lunar",
     service8Desc:
       "Pachet cu 4 masaje din meniu, alegerea clientului, cu flexibilitate în programare și acces la toate beneficiile terapiilor Idyla Spa.",
-    service8Benefits: "Economie, Experiență completă, Flexibilitate, Îngrijire constantă, Echilibru corp-minte",
+    service8Benefits:
+      "Economie, Experiență completă, Flexibilitate, Îngrijire constantă, Echilibru corp-minte",
 
     // Footer
     location: "Locație",
@@ -169,54 +176,62 @@ const translations: Record<Language, Translations> = {
     team1Role: "Traditional Massage Specialist",
     team1Bio:
       "Balinese professional from Denpasar with 13 years of experience in traditional massage and relaxation techniques. Brings the authenticity and art of Balinese massage directly from the heart of Bali.",
-    team1Specialties: "Traditional Balinese Massage, Thai Massage, Hot Stone Massage, Lomi-Lomi Hawaiian",
+    team1Specialties:
+      "Traditional Balinese Massage, Thai Massage, Hot Stone Massage, Lomi-Lomi Hawaiian",
 
     // Services section
     servicesTitle: "Our Menu",
-    servicesSubtitle:
-      "Treatments inspired by Asian traditions",
+    servicesSubtitle: "Treatments inspired by Asian traditions",
     recommended: "Recommended",
 
     // Services
     service1Name: "Balinese Massage",
     service1Desc:
       "Traditional Balinese massage with fluid movements, gentle pressure, and an enveloping rhythm, designed for deep relaxation and inner harmony.",
-    service1Benefits: "Deep relaxation, Emotional balance, Muscle tension relief, Stress reduction, Improved circulation",
+    service1Benefits:
+      "Deep relaxation, Emotional balance, Muscle tension relief, Stress reduction, Improved circulation",
 
     service2Name: "Thai Massage",
     service2Desc:
       "Asian technique based on acupressure and passive stretching, ideal for releasing body tension and increasing joint mobility.",
-    service2Benefits: "Joint flexibility, Deep tension release, Body revitalization, Energy balance, Mental clarity",
+    service2Benefits:
+      "Joint flexibility, Deep tension release, Body revitalization, Energy balance, Mental clarity",
 
     service3Name: "Sports Massage",
     service3Desc:
       "Active massage designed for active individuals, or after physical effort, for recovery, reducing muscle soreness, and enhancing performance.",
-    service3Benefits: "Muscle recovery, Pain reduction, Muscle elasticity, Physical performance, Increased mobility",
+    service3Benefits:
+      "Muscle recovery, Pain reduction, Muscle elasticity, Physical performance, Increased mobility",
 
     service4Name: "Hot Stone Massage",
     service4Desc:
       "Heated volcanic stones strategically applied, combined with manual massage for deep muscle relaxation and continuous tension relief.",
-    service4Benefits: "Deep relaxation, Tension elimination, Activated circulation, Inner calm, Restful sleep, Balance",
+    service4Benefits:
+      "Deep relaxation, Tension elimination, Activated circulation, Inner calm, Restful sleep, Balance",
 
     service5Name: "Lomi-Lomi Hawaiian Massage",
     service5Desc:
       "Fluid massage performed with forearms and sweeping movements, for body harmonization and restoring emotional balance.",
-    service5Benefits: "Emotional release, General relaxation, Inner balance, Improved circulation, Wellbeing",
+    service5Benefits:
+      "Emotional release, General relaxation, Inner balance, Improved circulation, Wellbeing",
 
     service6Name: "Lymphatic - Anti-Cellulite Massage",
     service6Desc:
       "Activates lymphatic drainage, reduces water retention, improves skin tone, and visibly diminishes the appearance of cellulite.",
-    service6Benefits: "Cellulite reduction, Detoxification, Body firmness, Water retention elimination, Metabolism boost",
+    service6Benefits:
+      "Cellulite reduction, Detoxification, Body firmness, Water retention elimination, Metabolism boost",
 
     service7Name: "Head, Neck & Shoulders Massage",
     service7Desc:
       "Massage dedicated to areas affected by stress, migraines, or poor posture, for quick relaxation and mental clarity.",
-    service7Benefits: "Migraine relief, Cervical relaxation, Mental clarity, Inner calm, Fatigue reduction",
+    service7Benefits:
+      "Migraine relief, Cervical relaxation, Mental clarity, Inner calm, Fatigue reduction",
 
     service8Name: "Monthly Subscription",
     service8Desc:
       "Package of 4 massages from the menu, client's choice, with scheduling flexibility and access to all Idyla Spa therapy benefits.",
-    service8Benefits: "Savings, Complete experience, Flexibility, Constant care, Body-mind balance",
+    service8Benefits:
+      "Savings, Complete experience, Flexibility, Constant care, Body-mind balance",
 
     // Footer
     location: "Location",

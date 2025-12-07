@@ -87,6 +87,9 @@ const Header = () => {
               sx={{
                 height: { xs: 48, sm: 56 },
                 width: "auto",
+                // Make the logo golden colored with glow to thicken lines
+                filter:
+                  "brightness(0) saturate(100%) invert(72%) sepia(32%) saturate(640%) hue-rotate(6deg) brightness(92%) contrast(89%) drop-shadow(0 0 1px #C9A050) drop-shadow(0 0 1px #C9A050) drop-shadow(0 0 0.5px #C9A050)",
               }}
             />
             <Typography
