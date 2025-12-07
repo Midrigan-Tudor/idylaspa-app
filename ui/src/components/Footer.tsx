@@ -9,12 +9,21 @@ import {
   Divider,
   IconButton,
   Link,
+  SvgIcon,
   Typography,
   useTheme as useMuiTheme,
 } from "@mui/material";
 
-import { useLanguage } from "./LanguageProvider";
 import { DARK_RGBA, LIGHT_RGBA, SOCIAL_URLS } from "../utils/constants";
+import { useLanguage } from "./LanguageProvider";
+
+import type { SvgIconProps } from "@mui/material";
+
+const TikTokIcon = (props: SvgIconProps) => (
+  <SvgIcon {...props} viewBox="0 0 24 24">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+  </SvgIcon>
+);
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -31,6 +40,11 @@ const Footer = () => {
       icon: <FacebookIcon />,
       url: SOCIAL_URLS.facebook,
       label: "Facebook",
+    },
+    {
+      icon: <TikTokIcon />,
+      url: SOCIAL_URLS.tiktok,
+      label: "TikTok",
     },
   ];
 
@@ -60,12 +74,21 @@ const Footer = () => {
           }}
         >
           {/* Location */}
-          <Box
+          <Link
+            href="https://maps.app.goo.gl/dJdDzw77F13aup2V8"
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
               display: "flex",
               alignItems: "center",
               gap: 1,
               textAlign: { xs: "center", md: "left" },
+              textDecoration: "none",
+              "&:hover": {
+                "& .MuiTypography-root": {
+                  color: "secondary.main",
+                },
+              },
             }}
           >
             <LocationOnIcon sx={{ color: "secondary.main", fontSize: 20 }} />
@@ -77,6 +100,7 @@ const Footer = () => {
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
                   fontSize: "0.65rem",
+                  transition: "color 0.2s ease",
                 }}
               >
                 {t.location}
@@ -86,12 +110,13 @@ const Footer = () => {
                 sx={{
                   color: "text.primary",
                   fontSize: { xs: "0.85rem", sm: "0.9rem" },
+                  transition: "color 0.2s ease",
                 }}
               >
-                Strada Exemplu 123, București
+                Bulevardul Republicii 2, Shopping Center, Bistrița
               </Typography>
             </Box>
-          </Box>
+          </Link>
 
           {/* Contact */}
           <Box
@@ -103,7 +128,7 @@ const Footer = () => {
             }}
           >
             <Link
-              href="tel:+40712345678"
+              href="tel:+40737058787"
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -120,7 +145,7 @@ const Footer = () => {
                 variant="body2"
                 sx={{ fontSize: { xs: "0.85rem", sm: "0.9rem" } }}
               >
-                +40 712 345 678
+                +40 737 058 787
               </Typography>
             </Link>
 
@@ -134,7 +159,7 @@ const Footer = () => {
             />
 
             <Link
-              href="mailto:contact@idylaspa.ro"
+              href="mailto:idylaspa@gmail.com"
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -154,7 +179,7 @@ const Footer = () => {
                   display: { xs: "none", sm: "block" },
                 }}
               >
-                contact@idylaspa.ro
+                idylaspa@gmail.com
               </Typography>
             </Link>
           </Box>
@@ -220,7 +245,7 @@ const Footer = () => {
             letterSpacing: "0.05em",
           }}
         >
-          © {new Date().getFullYear()} IDYLA SPA. {t.allRightsReserved}.
+          © {new Date().getFullYear()} Idyla Spa. {t.allRightsReserved}.
         </Typography>
       </Container>
     </Box>

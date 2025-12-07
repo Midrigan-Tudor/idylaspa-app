@@ -7,28 +7,16 @@ import {
   useTheme as useMuiTheme,
 } from "@mui/material";
 
-import { useLanguage } from "./LanguageProvider";
 import { COLORS, DARK_RGBA, LIGHT_RGBA } from "../utils/constants";
+import { useLanguage } from "./LanguageProvider";
 
-// Placeholder team images
+// Team member images
 const teamMembers = [
   {
     id: 1,
     image:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80",
-    experience: 8,
-  },
-  {
-    id: 2,
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
-    experience: 6,
-  },
-  {
-    id: 3,
-    image:
-      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80",
-    experience: 5,
+      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80",
+    experience: 13,
   },
 ];
 
@@ -38,36 +26,20 @@ const TeamSection = () => {
   const isDark = theme.palette.mode === "dark";
 
   const getTeamMemberData = (id: number) => {
-    switch (id) {
-      case 1:
-        return {
-          name: t.team1Name,
-          role: t.team1Role,
-          bio: t.team1Bio,
-          specialties: t.team1Specialties,
-        };
-      case 2:
-        return {
-          name: t.team2Name,
-          role: t.team2Role,
-          bio: t.team2Bio,
-          specialties: t.team2Specialties,
-        };
-      case 3:
-        return {
-          name: t.team3Name,
-          role: t.team3Role,
-          bio: t.team3Bio,
-          specialties: t.team3Specialties,
-        };
-      default:
-        return {
-          name: "",
-          role: "",
-          bio: "",
-          specialties: "",
-        };
+    if (id === 1) {
+      return {
+        name: t.team1Name,
+        role: t.team1Role,
+        bio: t.team1Bio,
+        specialties: t.team1Specialties,
+      };
     }
+    return {
+      name: "",
+      role: "",
+      bio: "",
+      specialties: "",
+    };
   };
 
   return (
@@ -167,13 +139,10 @@ const TeamSection = () => {
         {/* Team Grid */}
         <Box
           sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "1fr",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-            },
-            gap: { xs: 3, md: 4 },
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            px: { xs: 2, sm: 3, md: 4 },
           }}
         >
           {teamMembers.map((member) => {
@@ -182,11 +151,13 @@ const TeamSection = () => {
               <Card
                 key={member.id}
                 sx={{
+                  maxWidth: { xs: "100%", sm: 500, md: 480, lg: 520 },
+                  width: "100%",
                   backgroundColor: isDark
                     ? DARK_RGBA.card80
                     : LIGHT_RGBA.card90,
                   border: `1px solid ${isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.gold10}`,
-                  borderRadius: 2,
+                  borderRadius: 3,
                   overflow: "hidden",
                   transition: "all 0.3s ease",
                   "&:hover": {
@@ -244,13 +215,14 @@ const TeamSection = () => {
                   </Box>
                 </Box>
 
-                <CardContent sx={{ p: 3 }}>
+                <CardContent sx={{ p: { xs: 2.5, sm: 3, md: 3.5 } }}>
                   <Typography
                     variant="h5"
                     sx={{
                       fontWeight: 600,
                       color: "text.primary",
                       mb: 0.5,
+                      fontSize: { xs: "1.25rem", sm: "1.5rem" },
                     }}
                   >
                     {data.name}
@@ -263,7 +235,7 @@ const TeamSection = () => {
                       fontWeight: 600,
                       letterSpacing: "0.05em",
                       textTransform: "uppercase",
-                      fontSize: "0.75rem",
+                      fontSize: { xs: "0.7rem", sm: "0.75rem" },
                       mb: 2,
                     }}
                   >
@@ -275,7 +247,8 @@ const TeamSection = () => {
                     sx={{
                       color: "text.secondary",
                       mb: 2,
-                      lineHeight: 1.6,
+                      lineHeight: 1.7,
+                      fontSize: { xs: "0.9rem", sm: "0.95rem" },
                     }}
                   >
                     {data.bio}

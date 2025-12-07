@@ -110,21 +110,6 @@ const HeroSection = () => {
             }}
           />
 
-          {/* Subtitle */}
-          <Typography
-            variant="overline"
-            sx={{
-              color: "secondary.main",
-              letterSpacing: "0.3em",
-              fontSize: { xs: "0.75rem", sm: "0.85rem" },
-              fontWeight: 600,
-              display: "block",
-              mb: 2,
-            }}
-          >
-            {t.heroSubtitle}
-          </Typography>
-
           {/* Main Title */}
           <Typography
             variant="h1"

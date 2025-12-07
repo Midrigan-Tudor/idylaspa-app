@@ -3,7 +3,6 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import CloseIcon from "@mui/icons-material/Close";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import SpaIcon from "@mui/icons-material/Spa";
 import {
   AppBar,
   Box,
@@ -81,41 +80,29 @@ const Header = () => {
         >
           {/* Logo and Salon Name */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-            <SpaIcon
+            <Box
+              component="img"
+              src="/idyla-logo.png"
+              alt="Idyla Spa Logo"
               sx={{
-                fontSize: { xs: 28, sm: 32 },
-                color: "secondary.main",
+                height: { xs: 48, sm: 56 },
+                width: "auto",
               }}
             />
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{
-                  fontFamily: FONTS.playfair,
-                  fontSize: { xs: "1.2rem", sm: "1.5rem" },
-                  fontWeight: 600,
-                  letterSpacing: "0.15em",
-                  lineHeight: 1.2,
-                  color: "inherit",
-                }}
-              >
-                IDYLA SPA
-              </Typography>
-              {!isMobile && (
-                <Typography
-                  variant="caption"
-                  sx={{
-                    fontSize: "0.65rem",
-                    letterSpacing: "0.25em",
-                    opacity: 0.7,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Balinese Wellness
-                </Typography>
-              )}
-            </Box>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{
+                fontFamily: FONTS.playfair,
+                fontSize: { xs: "1.2rem", sm: "1.5rem" },
+                fontWeight: 600,
+                letterSpacing: "0.15em",
+                lineHeight: 1.2,
+                color: "secondary.main",
+              }}
+            >
+              IDYLA SPA
+            </Typography>
           </Box>
 
           {/* Right side controls */}
