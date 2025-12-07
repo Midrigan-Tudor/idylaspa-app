@@ -78,7 +78,7 @@ const translations: Record<Language, Translations> = {
     heroTitle: "Arta Relaxării Asiatice",
     heroSubtitle: "Arta Relaxării Asiatice",
     heroDescription:
-      "Experimentează arta autentică a masajului balinezian într-un sanctuar de liniște și relaxare profundă. Lasă-te purtat într-o călătorie senzorială care îți va revitaliza corpul și sufletul.",
+      "Experimentează arta autentică a masajului asiatic într-un sanctuar de liniște și relaxare profundă. Lasă-te purtat într-o călătorie senzorială care îți va revitaliza corpul și sufletul.",
 
     // Team section
     teamTitle: "Echipa Noastră",
@@ -162,7 +162,7 @@ const translations: Record<Language, Translations> = {
     heroTitle: "The Art of Asian Relaxation",
     heroSubtitle: "The Art of Asian Relaxation",
     heroDescription:
-      "Experience the authentic art of Balinese massage in a sanctuary of peace and deep relaxation. Let yourself be carried on a sensory journey that will revitalize your body and soul.",
+      "Experience the authentic art of asian massage in a sanctuary of peace and deep relaxation. Let yourself be carried on a sensory journey that will revitalize your body and soul.",
 
     // Team section
     teamTitle: "Our Team",
