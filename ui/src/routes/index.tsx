@@ -12,7 +12,10 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route index element={<HomePage />} />
     </Route>
-  )
+  ),
+  {
+    basename: import.meta.env.BASE_URL,
+  }
 );
 
 const Routes = () => {
