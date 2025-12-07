@@ -163,7 +163,7 @@ const Header = () => {
                 "&:hover": {
                   backgroundColor: isDark
                     ? DARK_RGBA.gold10
-                    : LIGHT_RGBA.green10,
+                    : LIGHT_RGBA.gold10,
                 },
               }}
             >
@@ -187,7 +187,7 @@ const Header = () => {
                 "&:hover": {
                   backgroundColor: isDark
                     ? DARK_RGBA.gold10
-                    : LIGHT_RGBA.green10,
+                    : LIGHT_RGBA.gold10,
                 },
               }}
             >
@@ -240,7 +240,7 @@ const Header = () => {
               px: 1,
               py: 0.5,
               backgroundColor: COLORS.lightPaper,
-              borderBottom: `1px solid ${LIGHT_RGBA.green20}`,
+              borderBottom: `1px solid ${LIGHT_RGBA.gold20}`,
               flexShrink: 0,
             }}
           >
@@ -250,7 +250,7 @@ const Header = () => {
               sx={{
                 color: COLORS.darkTextPrimary,
                 "&:hover": {
-                  backgroundColor: LIGHT_RGBA.green10,
+                  backgroundColor: LIGHT_RGBA.gold10,
                 },
               }}
             >

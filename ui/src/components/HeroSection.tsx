@@ -154,41 +154,6 @@ const HeroSection = () => {
             {t.heroDescription}
           </Typography>
 
-          {/* Decorative Element */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 2,
-              mt: 4,
-            }}
-          >
-            <Box
-              sx={{
-                width: 40,
-                height: 1,
-                backgroundColor: isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50,
-              }}
-            />
-            <Box
-              component="span"
-              sx={{
-                color: "secondary.main",
-                fontSize: "1.5rem",
-              }}
-            >
-              ✿
-            </Box>
-            <Box
-              sx={{
-                width: 40,
-                height: 1,
-                backgroundColor: isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50,
-              }}
-            />
-          </Box>
-
           {/* Slide Indicators */}
 
           <Box
@@ -223,51 +188,53 @@ const HeroSection = () => {
           </Box>
         </Container>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - Unified Gecko with Arrow */}
         <Box
           sx={{
             zIndex: 3,
             display: "flex",
-            justifyContent: "center",
-            animation: "bounce 2s infinite",
-            "@keyframes bounce": {
-              "0%, 20%, 50%, 80%, 100%": {
-                transform: "translateY(0)",
-              },
-              "40%": {
-                transform: "translateY(-10px)",
-              },
-              "60%": {
-                transform: "translateY(-5px)",
-              },
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 0.5,
+            animation: "scrollIndicator 2.5s ease-in-out infinite",
+            "@keyframes scrollIndicator": {
+              "0%, 100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(6px)" },
             },
           }}
         >
+          {/* Gecko PNG Image */}
           <Box
+            component="img"
+            src="/gecko.png"
+            alt="Scroll indicator"
             sx={{
-              width: 24,
-              height: 40,
-              border: 2,
-              borderColor: isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50,
-              borderRadius: 12,
-              display: "flex",
-              justifyContent: "center",
-              pt: 1,
+              width: 55,
+              height: "auto",
+              opacity: 0.75,
+              filter:
+                "brightness(0) saturate(100%) invert(70%) sepia(50%) saturate(400%) hue-rotate(10deg) brightness(90%)",
+            }}
+          />
+
+          {/* Arrow Down Icon - matching style */}
+          <Box
+            component="svg"
+            viewBox="0 0 24 24"
+            sx={{
+              width: 18,
+              height: 18,
+              fill: "none",
+              stroke: "#C9A050",
+              strokeWidth: 2.5,
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              opacity: 0.75,
+              mt: -0.5,
+              ml: 0.5,
             }}
           >
-            <Box
-              sx={{
-                width: 4,
-                height: 8,
-                backgroundColor: "secondary.main",
-                borderRadius: 2,
-                animation: "scroll 2s infinite",
-                "@keyframes scroll": {
-                  "0%": { opacity: 1, transform: "translateY(0)" },
-                  "100%": { opacity: 0, transform: "translateY(16px)" },
-                },
-              }}
-            />
+            <path d="M7 10l5 5 5-5" />
           </Box>
         </Box>
       </Box>

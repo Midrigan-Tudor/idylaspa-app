@@ -89,7 +89,7 @@ const ServicesSection = () => {
         sx={{
           position: "absolute",
           inset: 0,
-          backgroundImage: `radial-gradient(circle at 20% 80%, ${isDark ? DARK_RGBA.gold03 : LIGHT_RGBA.green03} 0%, transparent 50%), radial-gradient(circle at 80% 20%, ${isDark ? DARK_RGBA.gold03 : LIGHT_RGBA.green03} 0%, transparent 50%)`,
+          backgroundImage: `radial-gradient(circle at 20% 80%, ${isDark ? DARK_RGBA.gold03 : LIGHT_RGBA.gold03} 0%, transparent 50%), radial-gradient(circle at 80% 20%, ${isDark ? DARK_RGBA.gold03 : LIGHT_RGBA.gold03} 0%, transparent 50%)`,
           pointerEvents: "none",
         }}
       />
@@ -146,7 +146,7 @@ const ServicesSection = () => {
               sx={{
                 width: 40,
                 height: 1,
-                background: `linear-gradient(90deg, transparent, ${isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50})`,
+                background: `linear-gradient(90deg, transparent, ${isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.gold50})`,
               }}
             />
             <Typography sx={{ color: "secondary.main", fontSize: "1.2rem" }}>
@@ -156,7 +156,7 @@ const ServicesSection = () => {
               sx={{
                 width: 40,
                 height: 1,
-                background: `linear-gradient(90deg, ${isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50}, transparent)`,
+                background: `linear-gradient(90deg, ${isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.gold50}, transparent)`,
               }}
             />
           </Box>
@@ -183,7 +183,7 @@ const ServicesSection = () => {
                   backgroundColor: isDark
                     ? DARK_RGBA.card60
                     : LIGHT_RGBA.card80,
-                  border: `1px solid ${isDark ? DARK_RGBA.gold15 : LIGHT_RGBA.green15}`,
+                  border: `1px solid ${isDark ? DARK_RGBA.gold15 : LIGHT_RGBA.gold15}`,
                   borderRadius: 2,
                   transition: "all 0.3s ease",
                   position: "relative",
@@ -254,7 +254,7 @@ const ServicesSection = () => {
                       justifyContent: "space-between",
                       alignItems: "center",
                       pt: 2,
-                      borderTop: `1px solid ${isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.green10}`,
+                      borderTop: `1px solid ${isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.gold10}`,
                     }}
                   >
                     <Box
@@ -305,7 +305,7 @@ const ServicesSection = () => {
                     borderRadius: "50%",
                     backgroundColor: isDark
                       ? DARK_RGBA.gold05
-                      : LIGHT_RGBA.green05,
+                      : LIGHT_RGBA.gold05,
                   }}
                 />
               </Card>

@@ -37,10 +37,10 @@ export const COLORS = {
   lightText: "#F5F0E8",
   darkTextPrimary: "#2C2416",
 
-  // Primary (Deep jungle green)
-  primaryMain: "#2D5A47",
-  primaryLight: "#4A7A64",
-  primaryDark: "#1B3D2F",
+  // Primary (Warm gold/amber)
+  primaryMain: "#C9A050",
+  primaryLight: "#E0BE7A",
+  primaryDark: "#9A7A3A",
 
   // Secondary (Warm gold/amber)
   secondaryMain: "#C9A050",
@@ -98,14 +98,14 @@ export const LIGHT_RGBA = {
   card80: "rgba(255, 255, 255, 0.8)",
   card50: "rgba(255, 255, 255, 0.5)",
 
-  // Green/Primary with transparency
-  green50: "rgba(45, 90, 71, 0.5)",
-  green30: "rgba(45, 90, 71, 0.3)",
-  green20: "rgba(45, 90, 71, 0.2)",
-  green15: "rgba(45, 90, 71, 0.15)",
-  green10: "rgba(45, 90, 71, 0.1)",
-  green05: "rgba(45, 90, 71, 0.05)",
-  green03: "rgba(45, 90, 71, 0.03)",
+  // Gold/Primary with transparency
+  gold50: "rgba(201, 160, 80, 0.5)",
+  gold30: "rgba(201, 160, 80, 0.3)",
+  gold20: "rgba(201, 160, 80, 0.2)",
+  gold15: "rgba(201, 160, 80, 0.15)",
+  gold10: "rgba(201, 160, 80, 0.1)",
+  gold05: "rgba(201, 160, 80, 0.05)",
+  gold03: "rgba(201, 160, 80, 0.03)",
 
   // Black with transparency (shadows - same as dark)
   shadow40: "rgba(0, 0, 0, 0.4)",

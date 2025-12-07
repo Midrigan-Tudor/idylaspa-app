@@ -143,7 +143,7 @@ const TeamSection = () => {
               sx={{
                 width: 60,
                 height: 1,
-                background: `linear-gradient(90deg, transparent, ${isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50})`,
+                background: `linear-gradient(90deg, transparent, ${isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.gold50})`,
               }}
             />
             <Box
@@ -158,7 +158,7 @@ const TeamSection = () => {
               sx={{
                 width: 60,
                 height: 1,
-                background: `linear-gradient(90deg, ${isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.green50}, transparent)`,
+                background: `linear-gradient(90deg, ${isDark ? DARK_RGBA.gold50 : LIGHT_RGBA.gold50}, transparent)`,
               }}
             />
           </Box>
@@ -185,7 +185,7 @@ const TeamSection = () => {
                   backgroundColor: isDark
                     ? DARK_RGBA.card80
                     : LIGHT_RGBA.card90,
-                  border: `1px solid ${isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.green10}`,
+                  border: `1px solid ${isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.gold10}`,
                   borderRadius: 2,
                   overflow: "hidden",
                   transition: "all 0.3s ease",
@@ -284,7 +284,7 @@ const TeamSection = () => {
                   <Box
                     sx={{
                       pt: 2,
-                      borderTop: `1px solid ${isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.green10}`,
+                      borderTop: `1px solid ${isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.gold10}`,
                     }}
                   >
                     <Typography

@@ -68,7 +68,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
                 },
                 text: {
                   primary: COLORS.darkTextPrimary,
-                  secondary: "#5A4D3A",
+                  secondary: "#6B5D4D",
                 },
               }
             : {
@@ -78,7 +78,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
                 },
                 text: {
                   primary: COLORS.lightText,
-                  secondary: "#C4BAA8",
+                  secondary: "#C9BBA8",
                 },
               }),
         },

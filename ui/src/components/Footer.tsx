@@ -44,7 +44,7 @@ const Footer = () => {
         right: 0,
         backgroundColor: isDark ? DARK_RGBA.bg95 : LIGHT_RGBA.bg95,
         backdropFilter: "blur(10px)",
-        borderTop: `1px solid ${isDark ? DARK_RGBA.gold20 : LIGHT_RGBA.green20}`,
+        borderTop: `1px solid ${isDark ? DARK_RGBA.gold20 : LIGHT_RGBA.gold20}`,
         zIndex: (theme) => theme.zIndex.appBar,
         py: { xs: 2, sm: 2.5 },
       }}
@@ -128,7 +128,7 @@ const Footer = () => {
               orientation="vertical"
               flexItem
               sx={{
-                borderColor: isDark ? DARK_RGBA.gold30 : LIGHT_RGBA.green30,
+                borderColor: isDark ? DARK_RGBA.gold30 : LIGHT_RGBA.gold30,
                 display: { xs: "none", sm: "block" },
               }}
             />
@@ -188,17 +188,17 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label={social.label}
                 sx={{
-                  color: "text.primary",
+                  color: "secondary.main",
                   border: 1,
-                  borderColor: isDark ? DARK_RGBA.gold30 : LIGHT_RGBA.green30,
+                  borderColor: isDark ? DARK_RGBA.gold30 : LIGHT_RGBA.gold30,
                   borderRadius: 2,
                   padding: 0.8,
                   "&:hover": {
                     backgroundColor: isDark
                       ? DARK_RGBA.gold10
-                      : LIGHT_RGBA.green10,
-                    borderColor: "secondary.main",
-                    color: "secondary.main",
+                      : LIGHT_RGBA.gold10,
+                    borderColor: "secondary.light",
+                    color: "secondary.light",
                   },
                 }}
               >
