@@ -27,17 +27,17 @@ const services = [
   {
     id: 2,
     price: 150,
-    icon: "🙏",
+    icon: "🐒",
   },
   {
     id: 3,
     price: 150,
-    icon: "💪",
+    icon: "🏋️‍♂️",
   },
   {
     id: 4,
     price: 150,
-    icon: "🪨",
+    icon: "🌋",
   },
   {
     id: 5,
