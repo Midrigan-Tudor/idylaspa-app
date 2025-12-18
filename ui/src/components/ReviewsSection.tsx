@@ -1,14 +1,18 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import StarIcon from "@mui/icons-material/Star";
 import {
   Avatar,
   Box,
   Container,
+  IconButton,
   Link,
   Paper,
   Rating,
   Typography,
+  useMediaQuery,
   useTheme as useMuiTheme,
 } from "@mui/material";
 
@@ -136,45 +140,198 @@ const GoogleIcon = () => (
   </svg>
 );
 
+// Helper function to get initials from name
+const getInitials = (name: string) => {
+  return name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
+};
+
+// Review card component
+const ReviewCard = ({
+  review,
+  isDark,
+  isMobile = false,
+}: {
+  review: Review;
+  isDark: boolean;
+  isMobile?: boolean;
+}) => (
+  <Paper
+    elevation={0}
+    sx={{
+      width: { xs: "100%", md: 380 },
+      minWidth: { xs: "100%", md: 380 },
+      maxWidth: { xs: "100%", md: 380 },
+      height: isMobile ? 280 : "auto",
+      p: 3,
+      borderRadius: 3,
+      backgroundColor: isDark ? DARK_RGBA.card50 : LIGHT_RGBA.card90,
+      border: `1px solid ${isDark ? DARK_RGBA.gold15 : LIGHT_RGBA.gold15}`,
+      flexShrink: 0,
+      display: "flex",
+      flexDirection: "column",
+    }}
+  >
+    {/* Quote Icon */}
+    <Box sx={{ textAlign: "center", flexShrink: 0 }}>
+      <FormatQuoteIcon
+        sx={{
+          color: "secondary.main",
+          opacity: 0.3,
+          fontSize: 32,
+          transform: "rotate(180deg)",
+          mb: 0.5,
+        }}
+      />
+    </Box>
+
+    {/* Review Text - scrollable on mobile, no visible scrollbar */}
+    <Box
+      sx={{
+        flex: 1,
+        overflow: isMobile ? "auto" : "hidden",
+        mb: 2,
+        display: "flex",
+        alignItems: isMobile ? "flex-start" : "center",
+        justifyContent: "center",
+        // Hide scrollbar completely
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
+        scrollbarWidth: "none", // Firefox
+        msOverflowStyle: "none", // IE/Edge
+      }}
+    >
+      <Typography
+        variant="body2"
+        sx={{
+          color: "text.primary",
+          lineHeight: 1.7,
+          fontSize: "0.9rem",
+          textAlign: "center",
+          ...(isMobile
+            ? {}
+            : {
+                display: "-webkit-box",
+                WebkitLineClamp: 4,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }),
+        }}
+      >
+        {review.text}
+      </Typography>
+    </Box>
+
+    {/* Author Info - fixed at bottom */}
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        gap: 2,
+        pt: 2,
+        flexShrink: 0,
+        borderTop: `1px solid ${isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.gold10}`,
+      }}
+    >
+      <Avatar
+        src={review.profile_photo_url}
+        alt={review.author_name}
+        sx={{
+          width: 40,
+          height: 40,
+          bgcolor: "secondary.main",
+          fontFamily: FONTS.cormorant,
+          fontWeight: 600,
+          fontSize: "0.9rem",
+        }}
+      >
+        {getInitials(review.author_name)}
+      </Avatar>
+      <Box sx={{ flex: 1 }}>
+        <Typography
+          variant="subtitle2"
+          sx={{
+            color: "text.primary",
+            fontWeight: 600,
+            fontFamily: FONTS.cormorant,
+            fontSize: "0.95rem",
+          }}
+        >
+          {review.author_name}
+        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Rating
+            value={review.rating}
+            readOnly
+            size="small"
+            icon={<StarIcon fontSize="inherit" sx={{ color: "#FBBC05" }} />}
+            emptyIcon={
+              <StarIcon
+                fontSize="inherit"
+                sx={{
+                  color: isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)",
+                }}
+              />
+            }
+            sx={{ fontSize: "0.85rem" }}
+          />
+          <Typography
+            variant="caption"
+            sx={{ color: "text.secondary", fontSize: "0.65rem" }}
+          >
+            {review.relative_time_description}
+          </Typography>
+        </Box>
+      </Box>
+    </Box>
+  </Paper>
+);
+
 const ReviewsSection = () => {
   const { t } = useLanguage();
   const theme = useMuiTheme();
   const isDark = theme.palette.mode === "dark";
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-scroll animation - infinite loop, never stops
+  // Desktop only: Auto-scroll animation - infinite loop
   useEffect(() => {
+    if (isMobile) return; // No auto-scroll on mobile
+
     const container = scrollContainerRef.current;
     if (!container || REVIEWS.length === 0) return;
 
-    // Use setInterval for constant scrolling
     const scrollInterval = setInterval(() => {
       if (container) {
-        // Get half the scroll width (where duplicates start)
         const halfWidth = container.scrollWidth / 2;
 
         if (halfWidth > 0) {
           container.scrollLeft += 1;
-          // Seamlessly reset to beginning when reaching halfway (duplicates)
           if (container.scrollLeft >= halfWidth) {
             container.scrollLeft = 0;
           }
         }
       }
-    }, 20); // ~50fps, smooth scrolling
+    }, 20);
 
     return () => {
       clearInterval(scrollInterval);
     };
-  }, []);
+  }, [isMobile]);
 
-  const getInitials = (name: string) => {
-    return name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase()
-      .slice(0, 2);
+  // Mobile navigation
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? REVIEWS.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === REVIEWS.length - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -184,10 +341,12 @@ const ReviewsSection = () => {
         py: { xs: 6, md: 10 },
         position: "relative",
         overflow: "hidden",
-        backgroundColor: isDark ? "background.default" : "background.paper",
+        background: isDark
+          ? `linear-gradient(135deg, ${DARK_RGBA.card50} 0%, rgba(15, 20, 16, 0.98) 50%, ${DARK_RGBA.card50} 100%)`
+          : `linear-gradient(135deg, rgba(255,250,240,1) 0%, rgba(250,247,242,1) 50%, rgba(255,248,235,1) 100%)`,
       }}
     >
-      {/* Decorative background */}
+      {/* Decorative background elements */}
       <Box
         sx={{
           position: "absolute",
@@ -195,12 +354,83 @@ const ReviewsSection = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          opacity: 0.03,
-          backgroundImage: `radial-gradient(circle at 20% 50%, ${theme.palette.secondary.main} 0%, transparent 50%),
-                           radial-gradient(circle at 80% 50%, ${theme.palette.secondary.main} 0%, transparent 50%)`,
           pointerEvents: "none",
+          overflow: "hidden",
         }}
-      />
+      >
+        {/* Floating circles */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: "10%",
+            left: "5%",
+            width: 200,
+            height: 200,
+            borderRadius: "50%",
+            background: `radial-gradient(circle, ${isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.gold15} 0%, transparent 70%)`,
+          }}
+        />
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: "15%",
+            right: "10%",
+            width: 300,
+            height: 300,
+            borderRadius: "50%",
+            background: `radial-gradient(circle, ${isDark ? DARK_RGBA.gold05 : LIGHT_RGBA.gold10} 0%, transparent 70%)`,
+          }}
+        />
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 500,
+            height: 500,
+            borderRadius: "50%",
+            background: `radial-gradient(circle, ${isDark ? DARK_RGBA.gold03 : LIGHT_RGBA.gold05} 0%, transparent 60%)`,
+          }}
+        />
+        {/* Decorative stars pattern */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: "20%",
+            right: "15%",
+            color: isDark ? DARK_RGBA.gold20 : LIGHT_RGBA.gold30,
+            fontSize: 24,
+            opacity: 0.6,
+          }}
+        >
+          ✦
+        </Box>
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: "30%",
+            left: "12%",
+            color: isDark ? DARK_RGBA.gold15 : LIGHT_RGBA.gold20,
+            fontSize: 18,
+            opacity: 0.5,
+          }}
+        >
+          ✦
+        </Box>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "60%",
+            right: "8%",
+            color: isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.gold15,
+            fontSize: 14,
+            opacity: 0.4,
+          }}
+        >
+          ✦
+        </Box>
+      </Box>
 
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         {/* Section Header */}
@@ -276,137 +506,147 @@ const ReviewsSection = () => {
           </Box>
         </Box>
 
-        {/* Reviews Carousel */}
-        <Box
-          ref={scrollContainerRef}
-          sx={{
-            display: "flex",
-            gap: 3,
-            overflowX: "auto",
-            scrollBehavior: "smooth",
-            pb: 2,
-            px: 1,
-            // Hide scrollbar
-            "&::-webkit-scrollbar": { display: "none" },
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
-        >
-          {/* Duplicate reviews for infinite seamless loop */}
-          {[...REVIEWS, ...REVIEWS].map((review, index) => (
-            <Paper
-              key={`${review.author_name}-${index}`}
-              elevation={0}
+        {/* Mobile: Swipeable review with navigation arrows on sides */}
+        {isMobile ? (
+          <Box>
+            {/* Review with arrows layout */}
+            <Box
               sx={{
-                minWidth: { xs: 300, md: 380 },
-                maxWidth: { xs: 300, md: 380 },
-                p: 3,
-                borderRadius: 3,
-                backgroundColor: isDark ? DARK_RGBA.card50 : LIGHT_RGBA.card90,
-                border: `1px solid ${isDark ? DARK_RGBA.gold15 : LIGHT_RGBA.gold15}`,
-                flexShrink: 0,
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
               }}
             >
-              {/* Quote Icon */}
-              <FormatQuoteIcon
+              {/* Left Arrow */}
+              <IconButton
+                onClick={handlePrev}
+                size="small"
                 sx={{
+                  flexShrink: 0,
+                  width: 28,
+                  height: 28,
+                  bgcolor: isDark ? DARK_RGBA.card80 : LIGHT_RGBA.card90,
+                  border: `1px solid ${isDark ? DARK_RGBA.gold30 : LIGHT_RGBA.gold30}`,
                   color: "secondary.main",
-                  opacity: 0.3,
-                  fontSize: 40,
-                  transform: "rotate(180deg)",
-                  mb: -2,
-                  ml: -1,
-                }}
-              />
-
-              {/* Review Text */}
-              <Typography
-                variant="body2"
-                sx={{
-                  color: "text.primary",
-                  lineHeight: 1.7,
-                  mb: 3,
-                  minHeight: 80,
-                  display: "-webkit-box",
-                  WebkitLineClamp: 4,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
+                  "&:hover": {
+                    bgcolor: isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.gold10,
+                  },
                 }}
               >
-                {review.text}
-              </Typography>
+                <ChevronLeftIcon sx={{ fontSize: 18 }} />
+              </IconButton>
 
-              {/* Author Info */}
+              {/* Swipeable Review Container */}
               <Box
                 sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 2,
-                  pt: 2,
-                  borderTop: `1px solid ${isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.gold10}`,
+                  flex: 1,
+                  overflow: "hidden",
+                }}
+                onTouchStart={(e) => {
+                  const touch = e.touches[0];
+                  (e.currentTarget as HTMLElement).dataset.touchStartX =
+                    touch.clientX.toString();
+                }}
+                onTouchEnd={(e) => {
+                  const startX = parseFloat(
+                    (e.currentTarget as HTMLElement).dataset.touchStartX || "0"
+                  );
+                  const endX = e.changedTouches[0].clientX;
+                  const diff = startX - endX;
+
+                  if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                      handleNext();
+                    } else {
+                      handlePrev();
+                    }
+                  }
                 }}
               >
-                <Avatar
-                  src={review.profile_photo_url}
-                  alt={review.author_name}
-                  sx={{
-                    width: 44,
-                    height: 44,
-                    bgcolor: "secondary.main",
-                    fontFamily: FONTS.cormorant,
-                    fontWeight: 600,
-                    fontSize: "1rem",
-                  }}
-                >
-                  {getInitials(review.author_name)}
-                </Avatar>
-                <Box sx={{ flex: 1 }}>
-                  <Typography
-                    variant="subtitle2"
-                    sx={{
-                      color: "text.primary",
-                      fontWeight: 600,
-                      fontFamily: FONTS.cormorant,
-                      fontSize: "1rem",
-                    }}
-                  >
-                    {review.author_name}
-                  </Typography>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <Rating
-                      value={review.rating}
-                      readOnly
-                      size="small"
-                      icon={
-                        <StarIcon
-                          fontSize="inherit"
-                          sx={{ color: "#FBBC05" }}
-                        />
-                      }
-                      emptyIcon={
-                        <StarIcon
-                          fontSize="inherit"
-                          sx={{
-                            color: isDark
-                              ? "rgba(255,255,255,0.2)"
-                              : "rgba(0,0,0,0.15)",
-                          }}
-                        />
-                      }
-                      sx={{ fontSize: "0.9rem" }}
-                    />
-                    <Typography
-                      variant="caption"
-                      sx={{ color: "text.secondary", fontSize: "0.7rem" }}
-                    >
-                      {review.relative_time_description}
-                    </Typography>
-                  </Box>
-                </Box>
+                <ReviewCard
+                  review={REVIEWS[currentIndex]}
+                  isDark={isDark}
+                  isMobile={true}
+                />
               </Box>
-            </Paper>
-          ))}
-        </Box>
+
+              {/* Right Arrow */}
+              <IconButton
+                onClick={handleNext}
+                size="small"
+                sx={{
+                  flexShrink: 0,
+                  width: 28,
+                  height: 28,
+                  bgcolor: isDark ? DARK_RGBA.card80 : LIGHT_RGBA.card90,
+                  border: `1px solid ${isDark ? DARK_RGBA.gold30 : LIGHT_RGBA.gold30}`,
+                  color: "secondary.main",
+                  "&:hover": {
+                    bgcolor: isDark ? DARK_RGBA.gold10 : LIGHT_RGBA.gold10,
+                  },
+                }}
+              >
+                <ChevronRightIcon sx={{ fontSize: 18 }} />
+              </IconButton>
+            </Box>
+
+            {/* Dots indicator */}
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                gap: 0.75,
+                mt: 2,
+              }}
+            >
+              {REVIEWS.map((_, index) => (
+                <Box
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  sx={{
+                    width: currentIndex === index ? 16 : 6,
+                    height: 6,
+                    borderRadius: 3,
+                    bgcolor:
+                      currentIndex === index
+                        ? "secondary.main"
+                        : isDark
+                          ? DARK_RGBA.gold30
+                          : LIGHT_RGBA.gold30,
+                    transition: "all 0.3s ease",
+                    cursor: "pointer",
+                  }}
+                />
+              ))}
+            </Box>
+          </Box>
+        ) : (
+          /* Desktop: Auto-scrolling carousel */
+          <Box
+            ref={scrollContainerRef}
+            sx={{
+              display: "flex",
+              gap: 3,
+              overflowX: "auto",
+              scrollBehavior: "smooth",
+              pb: 2,
+              px: 1,
+              // Hide scrollbar
+              "&::-webkit-scrollbar": { display: "none" },
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
+            {/* Duplicate reviews for infinite seamless loop */}
+            {[...REVIEWS, ...REVIEWS].map((review, index) => (
+              <ReviewCard
+                key={`${review.author_name}-${index}`}
+                review={review}
+                isDark={isDark}
+              />
+            ))}
+          </Box>
+        )}
 
         {/* View All on Google Link */}
         <Box sx={{ textAlign: "center", mt: 4 }}>
