@@ -4,6 +4,7 @@ export { default as HeroSection } from "./HeroSection";
 export { default as HomePage } from "./HomePage";
 export { default as Layout } from "./Layout";
 export { default as ReviewsSection } from "./ReviewsSection";
+export { default as SectionSeparator } from "./SectionSeparator";
 export { default as ServicesSection } from "./ServicesSection";
 export { default as TeamSection } from "./TeamSection";
 export { ThemeProvider, useTheme } from "./ThemeProvider";

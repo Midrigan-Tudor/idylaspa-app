@@ -161,19 +161,173 @@ const ServicesSection = () => {
       sx={{
         py: { xs: 8, md: 12 },
         position: "relative",
-        backgroundColor: isDark ? COLORS.darkBg : COLORS.lightBg,
+        background: isDark
+          ? `linear-gradient(160deg, ${COLORS.darkBg} 0%, rgba(18, 25, 20, 1) 30%, rgba(22, 30, 24, 1) 70%, ${COLORS.darkBg} 100%)`
+          : `linear-gradient(160deg, ${COLORS.lightBg} 0%, rgba(250, 248, 242, 1) 30%, rgba(255, 252, 245, 1) 70%, ${COLORS.lightBg} 100%)`,
         overflow: "hidden",
       }}
     >
-      {/* Background Pattern */}
+      {/* Enhanced Background Pattern */}
       <Box
         sx={{
           position: "absolute",
           inset: 0,
-          backgroundImage: `radial-gradient(circle at 20% 80%, ${isDark ? DARK_RGBA.gold03 : LIGHT_RGBA.gold03} 0%, transparent 50%), radial-gradient(circle at 80% 20%, ${isDark ? DARK_RGBA.gold03 : LIGHT_RGBA.gold03} 0%, transparent 50%)`,
+          backgroundImage: `
+            radial-gradient(circle at 10% 20%, ${isDark ? "rgba(201, 160, 80, 0.08)" : "rgba(45, 90, 71, 0.06)"} 0%, transparent 40%),
+            radial-gradient(circle at 90% 80%, ${isDark ? "rgba(201, 160, 80, 0.08)" : "rgba(45, 90, 71, 0.06)"} 0%, transparent 40%),
+            radial-gradient(circle at 50% 50%, ${isDark ? "rgba(201, 160, 80, 0.04)" : "rgba(45, 90, 71, 0.03)"} 0%, transparent 60%)
+          `,
           pointerEvents: "none",
         }}
       />
+
+      {/* Floating decorative orbs */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "5%",
+          right: "10%",
+          width: { xs: 100, md: 200 },
+          height: { xs: 100, md: 200 },
+          borderRadius: "50%",
+          background: isDark
+            ? "radial-gradient(circle, rgba(201, 160, 80, 0.1) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(45, 90, 71, 0.08) 0%, transparent 70%)",
+          filter: "blur(30px)",
+          animation: "orbFloat1 15s ease-in-out infinite",
+          pointerEvents: "none",
+          "@keyframes orbFloat1": {
+            "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+            "25%": { transform: "translate(-30px, 20px) scale(1.1)" },
+            "50%": { transform: "translate(-15px, -25px) scale(0.9)" },
+            "75%": { transform: "translate(20px, 15px) scale(1.05)" },
+          },
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          left: "5%",
+          width: { xs: 80, md: 160 },
+          height: { xs: 80, md: 160 },
+          borderRadius: "50%",
+          background: isDark
+            ? "radial-gradient(circle, rgba(201, 160, 80, 0.12) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(45, 90, 71, 0.1) 0%, transparent 70%)",
+          filter: "blur(25px)",
+          animation: "orbFloat2 12s ease-in-out infinite",
+          pointerEvents: "none",
+          "@keyframes orbFloat2": {
+            "0%, 100%": { transform: "translate(0, 0)" },
+            "50%": { transform: "translate(25px, -20px)" },
+          },
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          top: "40%",
+          left: "50%",
+          width: { xs: 120, md: 250 },
+          height: { xs: 120, md: 250 },
+          borderRadius: "50%",
+          background: isDark
+            ? "radial-gradient(circle, rgba(201, 160, 80, 0.06) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(45, 90, 71, 0.05) 0%, transparent 70%)",
+          filter: "blur(40px)",
+          transform: "translateX(-50%)",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Decorative lotus/spa-inspired shapes */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "15%",
+          left: "3%",
+          width: 60,
+          height: 60,
+          opacity: isDark ? 0.15 : 0.1,
+          pointerEvents: "none",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            border: `2px solid ${isDark ? "#C9A050" : "#2D5A47"}`,
+            borderRadius: "50% 0 50% 0",
+            transform: "rotate(45deg)",
+            animation: "gentleRotate 20s linear infinite",
+          },
+          "@keyframes gentleRotate": {
+            "0%": { transform: "rotate(45deg)" },
+            "100%": { transform: "rotate(405deg)" },
+          },
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "20%",
+          right: "5%",
+          width: 45,
+          height: 45,
+          opacity: isDark ? 0.12 : 0.08,
+          pointerEvents: "none",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            border: `2px solid ${isDark ? "#C9A050" : "#2D5A47"}`,
+            borderRadius: "50% 0 50% 0",
+            transform: "rotate(-45deg)",
+            animation: "gentleRotateReverse 18s linear infinite",
+          },
+          "@keyframes gentleRotateReverse": {
+            "0%": { transform: "rotate(-45deg)" },
+            "100%": { transform: "rotate(-405deg)" },
+          },
+        }}
+      />
+
+      {/* Subtle sparkle dots */}
+      {[
+        { top: "8%", left: "20%", delay: "0s" },
+        { top: "25%", right: "25%", delay: "0.7s" },
+        { top: "60%", left: "12%", delay: "1.4s" },
+        { top: "75%", right: "18%", delay: "2.1s" },
+        { top: "45%", left: "85%", delay: "0.3s" },
+        { top: "90%", left: "45%", delay: "1.8s" },
+      ].map((dot, index) => (
+        <Box
+          key={index}
+          sx={{
+            position: "absolute",
+            top: dot.top,
+            left: dot.left,
+            right: dot.right,
+            width: 4,
+            height: 4,
+            borderRadius: "50%",
+            bgcolor: isDark
+              ? "rgba(201, 160, 80, 0.5)"
+              : "rgba(45, 90, 71, 0.4)",
+            boxShadow: isDark
+              ? "0 0 6px 1px rgba(201, 160, 80, 0.3)"
+              : "0 0 6px 1px rgba(45, 90, 71, 0.2)",
+            animation: "twinkle 4s ease-in-out infinite",
+            animationDelay: dot.delay,
+            pointerEvents: "none",
+            "@keyframes twinkle": {
+              "0%, 100%": { opacity: 0.2, transform: "scale(0.8)" },
+              "50%": { opacity: 1, transform: "scale(1.2)" },
+            },
+          }}
+        />
+      ))}
 
       <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
         {/* Section Header */}

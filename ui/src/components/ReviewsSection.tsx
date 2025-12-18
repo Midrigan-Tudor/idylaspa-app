@@ -191,6 +191,7 @@ const ReviewCard = ({
 
     {/* Review Text - scrollable on mobile, no visible scrollbar */}
     <Box
+      data-scroll-reset="true"
       sx={{
         flex: 1,
         overflow: isMobile ? "auto" : "hidden",
@@ -297,6 +298,7 @@ const ReviewsSection = () => {
   const theme = useMuiTheme();
   const isDark = theme.palette.mode === "dark";
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const mobileReviewRef = useRef<HTMLDivElement>(null);
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -324,6 +326,19 @@ const ReviewsSection = () => {
       clearInterval(scrollInterval);
     };
   }, [isMobile]);
+
+  // Reset scroll position when review changes on mobile
+  useEffect(() => {
+    if (mobileReviewRef.current) {
+      // Find the scrollable text container and reset it
+      const scrollableBox = mobileReviewRef.current.querySelector(
+        "[data-scroll-reset]"
+      );
+      if (scrollableBox) {
+        scrollableBox.scrollTop = 0;
+      }
+    }
+  }, [currentIndex]);
 
   // Mobile navigation
   const handlePrev = () => {
@@ -538,6 +553,7 @@ const ReviewsSection = () => {
 
               {/* Swipeable Review Container */}
               <Box
+                ref={mobileReviewRef}
                 sx={{
                   flex: 1,
                   overflow: "hidden",

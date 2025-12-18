@@ -67,16 +67,181 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Decorative Pattern Overlay */}
+      {/* Floating decorative circles */}
       <Box
         sx={{
           position: "absolute",
-          inset: 0,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='${isDark ? "%23C9A050" : "%232D5A47"}' fill-opacity='0.05'%3E%3Cpath d='M30 30c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zm0-20c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zM10 30c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          opacity: 0.5,
+          top: "10%",
+          left: "5%",
+          width: { xs: 60, md: 120 },
+          height: { xs: 60, md: 120 },
+          borderRadius: "50%",
+          background: isDark
+            ? "radial-gradient(circle, rgba(201, 160, 80, 0.15) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(45, 90, 71, 0.12) 0%, transparent 70%)",
+          filter: "blur(20px)",
+          animation: "floatSlow 12s ease-in-out infinite",
           zIndex: 2,
+          "@keyframes floatSlow": {
+            "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+            "33%": { transform: "translate(15px, -20px) scale(1.1)" },
+            "66%": { transform: "translate(-10px, 10px) scale(0.95)" },
+          },
         }}
       />
+      <Box
+        sx={{
+          position: "absolute",
+          top: "60%",
+          right: "8%",
+          width: { xs: 80, md: 150 },
+          height: { xs: 80, md: 150 },
+          borderRadius: "50%",
+          background: isDark
+            ? "radial-gradient(circle, rgba(201, 160, 80, 0.12) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(45, 90, 71, 0.1) 0%, transparent 70%)",
+          filter: "blur(25px)",
+          animation: "floatMedium 10s ease-in-out infinite",
+          zIndex: 2,
+          "@keyframes floatMedium": {
+            "0%, 100%": { transform: "translate(0, 0) rotate(0deg)" },
+            "50%": { transform: "translate(-20px, -15px) rotate(180deg)" },
+          },
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "15%",
+          left: "15%",
+          width: { xs: 40, md: 80 },
+          height: { xs: 40, md: 80 },
+          borderRadius: "50%",
+          background: isDark
+            ? "radial-gradient(circle, rgba(201, 160, 80, 0.18) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(45, 90, 71, 0.15) 0%, transparent 70%)",
+          filter: "blur(15px)",
+          animation: "floatFast 8s ease-in-out infinite",
+          zIndex: 2,
+          "@keyframes floatFast": {
+            "0%, 100%": { transform: "translateY(0) scale(1)" },
+            "50%": { transform: "translateY(-25px) scale(1.15)" },
+          },
+        }}
+      />
+
+      {/* Glowing orbs */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "30%",
+          left: "3%",
+          width: { xs: 100, md: 180 },
+          height: { xs: 100, md: 180 },
+          borderRadius: "50%",
+          background: isDark
+            ? "radial-gradient(circle, rgba(201, 160, 80, 0.2) 0%, rgba(201, 160, 80, 0.05) 40%, transparent 70%)"
+            : "radial-gradient(circle, rgba(45, 90, 71, 0.15) 0%, rgba(45, 90, 71, 0.04) 40%, transparent 70%)",
+          filter: "blur(30px)",
+          animation: "orbPulse 6s ease-in-out infinite",
+          zIndex: 2,
+          "@keyframes orbPulse": {
+            "0%, 100%": { transform: "scale(1)", opacity: 0.8 },
+            "50%": { transform: "scale(1.2)", opacity: 1 },
+          },
+        }}
+      />
+
+      {/* Floating lotus flowers - elegant outlined design */}
+      {[
+        { left: "3%", size: 45, delay: "0s", duration: 18 },
+        { left: "12%", size: 30, delay: "2s", duration: 14 },
+        { left: "22%", size: 40, delay: "4s", duration: 20 },
+        { left: "32%", size: 25, delay: "1s", duration: 13 },
+        { left: "42%", size: 35, delay: "3s", duration: 17 },
+        { left: "52%", size: 28, delay: "5s", duration: 15 },
+        { left: "62%", size: 50, delay: "0.5s", duration: 22 },
+        { left: "72%", size: 22, delay: "2.5s", duration: 14 },
+        { left: "82%", size: 38, delay: "4.5s", duration: 19 },
+        { left: "8%", size: 20, delay: "6s", duration: 12 },
+        { left: "48%", size: 42, delay: "7s", duration: 21 },
+        { left: "92%", size: 32, delay: "1.5s", duration: 16 },
+      ].map((lotus, index) => (
+        <Box
+          key={`lotus-${index}`}
+          component="svg"
+          viewBox="0 0 100 100"
+          sx={{
+            position: "absolute",
+            left: lotus.left,
+            bottom: "-10%",
+            width: { xs: lotus.size * 0.6, md: lotus.size },
+            height: { xs: lotus.size * 0.6, md: lotus.size },
+            zIndex: 2,
+            animation: `lotusFloat ${lotus.duration}s ease-in-out infinite`,
+            animationDelay: lotus.delay,
+            "@keyframes lotusFloat": {
+              "0%": {
+                transform: "translateY(0) translateX(0) rotate(0deg) scale(0)",
+                opacity: 0,
+              },
+              "10%": {
+                opacity: 0.4,
+                transform:
+                  "translateY(-10vh) translateX(15px) rotate(20deg) scale(1)",
+              },
+              "30%": {
+                transform:
+                  "translateY(-30vh) translateX(-20px) rotate(60deg) scale(1.1)",
+              },
+              "50%": {
+                transform:
+                  "translateY(-50vh) translateX(25px) rotate(120deg) scale(1)",
+                opacity: 0.35,
+              },
+              "70%": {
+                transform:
+                  "translateY(-70vh) translateX(-15px) rotate(180deg) scale(0.9)",
+                opacity: 0.25,
+              },
+              "90%": {
+                opacity: 0.1,
+              },
+              "100%": {
+                transform:
+                  "translateY(-115vh) translateX(10px) rotate(240deg) scale(0.5)",
+                opacity: 0,
+              },
+            },
+          }}
+        >
+          {/* 8-petal lotus flower - outlined elegant design */}
+          {/* Outer petals - 4 petals at 0, 90, 180, 270 degrees */}
+          {[0, 90, 180, 270].map((angle) => (
+            <path
+              key={`outer-${angle}`}
+              d="M50 50 Q35 30 50 8 Q65 30 50 50"
+              fill="none"
+              stroke="#C9A050"
+              strokeWidth="1.5"
+              transform={`rotate(${angle} 50 50)`}
+            />
+          ))}
+          {/* Inner petals - 4 petals at 45, 135, 225, 315 degrees */}
+          {[45, 135, 225, 315].map((angle) => (
+            <path
+              key={`inner-${angle}`}
+              d="M50 50 Q38 35 50 15 Q62 35 50 50"
+              fill="none"
+              stroke="#C9A050"
+              strokeWidth="1.5"
+              transform={`rotate(${angle} 50 50)`}
+            />
+          ))}
+          {/* Center circle */}
+          <circle cx="50" cy="50" r="8" fill="#C9A050" opacity="0.6" />
+        </Box>
+      ))}
 
       {/* Content */}
       <Box
@@ -99,17 +264,6 @@ const HeroSection = () => {
             px: { xs: 3, sm: 4 },
           }}
         >
-          {/* Decorative Line */}
-          <Box
-            sx={{
-              width: 60,
-              height: 2,
-              backgroundColor: "secondary.main",
-              mx: "auto",
-              mb: { xs: 1.5, sm: 3 },
-            }}
-          />
-
           {/* Main Title */}
           <Typography
             variant="h1"
