@@ -106,7 +106,7 @@ const HeroSection = () => {
               height: 2,
               backgroundColor: "secondary.main",
               mx: "auto",
-              mb: 3,
+              mb: { xs: 1.5, sm: 3 },
             }}
           />
 
@@ -117,7 +117,7 @@ const HeroSection = () => {
               fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem" },
               fontWeight: 500,
               lineHeight: 1.1,
-              mb: 3,
+              mb: { xs: 1.5, sm: 3 },
               color: "text.primary",
             }}
           >
@@ -131,9 +131,9 @@ const HeroSection = () => {
               maxWidth: 600,
               mx: "auto",
               color: "text.secondary",
-              fontSize: { xs: "1.1rem", sm: "1.25rem" },
-              lineHeight: 1.8,
-              mb: 4,
+              fontSize: { xs: "1rem", sm: "1.25rem" },
+              lineHeight: { xs: 1.6, sm: 1.8 },
+              mb: { xs: 2, sm: 4 },
             }}
           >
             {t.heroDescription}
@@ -146,7 +146,7 @@ const HeroSection = () => {
               display: "flex",
               justifyContent: "center",
               gap: 1,
-              mt: 6,
+              mt: { xs: 3, sm: 6 },
             }}
           >
             {HERO_IMAGES.map((_, index) => (
@@ -180,7 +180,7 @@ const HeroSection = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 0.5,
+            gap: { xs: 0, sm: 0.5 },
             animation: "scrollIndicator 2.5s ease-in-out infinite",
             "@keyframes scrollIndicator": {
               "0%, 100%": { transform: "translateY(0)" },
@@ -194,7 +194,7 @@ const HeroSection = () => {
             src={`${import.meta.env.BASE_URL}gecko.png`}
             alt="Scroll indicator"
             sx={{
-              width: 55,
+              width: { xs: 45, sm: 55 },
               height: "auto",
               opacity: 0.75,
               filter:
@@ -207,15 +207,15 @@ const HeroSection = () => {
             component="svg"
             viewBox="0 0 24 24"
             sx={{
-              width: 18,
-              height: 18,
+              width: { xs: 16, sm: 18 },
+              height: { xs: 16, sm: 18 },
               fill: "none",
               stroke: "#C9A050",
               strokeWidth: 2.5,
               strokeLinecap: "round",
               strokeLinejoin: "round",
               opacity: 0.75,
-              mt: -0.5,
+              mt: { xs: -1, sm: -0.5 },
               ml: 0.5,
             }}
           >

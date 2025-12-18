@@ -62,6 +62,12 @@ interface Translations {
   service8Desc: string;
   service8Benefits: string;
 
+  // Reviews section
+  reviewsTitle: string;
+  reviewsSubtitle: string;
+  reviewsCount: string;
+  viewAllReviews: string;
+
   // Footer
   location: string;
   contactUs: string;
@@ -148,6 +154,12 @@ const translations: Record<Language, Translations> = {
     service8Benefits:
       "Economie, Experiență completă, Flexibilitate, Îngrijire constantă, Echilibru corp-minte",
 
+    // Reviews section
+    reviewsTitle: "Ce Spun Clienții Noștri",
+    reviewsSubtitle: "Recenzii",
+    reviewsCount: "recenzii",
+    viewAllReviews: "Vezi toate recenziile",
+
     // Footer
     location: "Locație",
     contactUs: "Contact",
@@ -232,6 +244,12 @@ const translations: Record<Language, Translations> = {
       "Package of 4 massages from the menu, client's choice, with scheduling flexibility and access to all Idyla Spa therapy benefits.",
     service8Benefits:
       "Savings, Complete experience, Flexibility, Constant care, Body-mind balance",
+
+    // Reviews section
+    reviewsTitle: "What Our Clients Say",
+    reviewsSubtitle: "Reviews",
+    reviewsCount: "reviews",
+    viewAllReviews: "View all reviews",
 
     // Footer
     location: "Location",
