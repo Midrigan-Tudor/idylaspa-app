@@ -251,8 +251,8 @@ const HeroSection = () => {
           alignItems: "center",
           flexDirection: "column",
 
-          gap: 5,
-          mt: 6,
+          gap: { xs: 3, sm: 5 },
+          mt: { xs: 2, sm: 4, md: 6 },
         }}
       >
         <Container
@@ -264,6 +264,38 @@ const HeroSection = () => {
             px: { xs: 3, sm: 4 },
           }}
         >
+          {/* Rotating lotus flower above title */}
+          <Box
+            component="svg"
+            viewBox="0 0 100 100"
+            sx={{
+              width: { xs: 50, sm: 60, md: 70 },
+              height: { xs: 50, sm: 60, md: 70 },
+              mb: { xs: 0.5, sm: 1 },
+              animation: "lotusSpinSlow 20s linear infinite",
+              "@keyframes lotusSpinSlow": {
+                "0%": { transform: "rotate(0deg)" },
+                "100%": { transform: "rotate(360deg)" },
+              },
+            }}
+          >
+            {/* 8-petal lotus flower */}
+            {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
+              <path
+                key={angle}
+                d="M50 50 Q35 30 50 8 Q65 30 50 50"
+                fill="none"
+                stroke="#C9A050"
+                strokeWidth="1.5"
+                opacity={angle % 90 === 0 ? 0.7 : 0.5}
+                transform={`rotate(${angle} 50 50)`}
+              />
+            ))}
+            {/* Center circle */}
+            <circle cx="50" cy="50" r="8" fill="#C9A050" opacity="0.6" />
+            <circle cx="50" cy="50" r="4" fill="#C9A050" opacity="0.8" />
+          </Box>
+
           {/* Main Title */}
           <Typography
             variant="h1"
